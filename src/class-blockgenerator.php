@@ -56,12 +56,12 @@ class BlockGenerator {
 		$block_dir = $this->theme_path . '/blocks/' . $data['name'];
 
 		if ( ! file_exists( $block_dir ) ) {
-			mkdir( $block_dir, 0755, true );
+			mkdir( $block_dir, 0755, true ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_mkdir
 		}
 
 		$views_dir = $this->theme_path . '/views/blocks';
 		if ( ! file_exists( $views_dir ) ) {
-			mkdir( $views_dir, 0755, true );
+			mkdir( $views_dir, 0755, true ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_mkdir
 		}
 
 		$this->create_block_json( $block_dir, $data );
@@ -101,7 +101,7 @@ class BlockGenerator {
 			)
 		);
 
-		file_put_contents( $dir . '/block.json', $content ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_read_file_put_contents
+		file_put_contents( $dir . '/block.json', $content ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_file_put_contents
 	}
 
 	/**
@@ -125,7 +125,7 @@ class BlockGenerator {
 			)
 		);
 
-		file_put_contents( $dir . '/callback.php', $content ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_read_file_put_contents
+		file_put_contents( $dir . '/callback.php', $content ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_file_put_contents
 	}
 
 	/**
@@ -145,7 +145,7 @@ class BlockGenerator {
 			)
 		);
 
-		file_put_contents( $dir . '/' . $data['name'] . '.twig', $content ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_read_file_put_contents
+		file_put_contents( $dir . '/' . $data['name'] . '.twig', $content ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_file_put_contents
 	}
 
 	/**
@@ -164,7 +164,7 @@ class BlockGenerator {
 			)
 		);
 
-		file_put_contents( $dir . '/' . $data['name'] . '.js', $content ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_read_file_put_contents
+		file_put_contents( $dir . '/' . $data['name'] . '.js', $content ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_file_put_contents
 	}
 
 	/**
@@ -184,6 +184,6 @@ class BlockGenerator {
 			)
 		);
 
-		file_put_contents( $dir . '/' . $data['name'] . '.css', $content ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_read_file_put_contents
+		file_put_contents( $dir . '/' . $data['name'] . '.css', $content ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_file_put_contents
 	}
 }
