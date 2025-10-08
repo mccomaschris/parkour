@@ -80,11 +80,16 @@ class BlockGenerator {
 	/**
 	 * Create block.json
 	 *
-	 * @param string $dir The directory to create the file in.
+	 * @param string $dir  The directory to create the file in.
 	 * @param array  $data The block data.
 	 * @return void
 	 */
 	private function create_block_json( $dir, $data ) {
+		$keywords_json = '';
+		if ( ! empty( $data['keywords'] ) ) {
+			$keywords_json = wp_json_encode( $data['keywords'], JSON_UNESCAPED_SLASHES );
+		}
+
 		$content = $this->mustache->render(
 			'block.json',
 			array(
@@ -93,7 +98,7 @@ class BlockGenerator {
 				'description'        => $data['description'],
 				'category'           => $data['category'],
 				'icon'               => $data['icon'],
-				'keywords'           => $data['keywords'],
+				'keywords'           => $keywords_json,
 				'theme_slug'         => $data['theme_slug'],
 				'function_name'      => $data['function_name'],
 				'supports_anchor'    => $data['supports_anchor'],

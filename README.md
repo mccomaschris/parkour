@@ -1,4 +1,4 @@
-# Parkour
+# 🏃 Parkour
 
 **PARKOUR!** A WP-CLI command to quickly scaffold ACF blocks for Timber themes.
 
@@ -14,7 +14,7 @@ Named after the iconic Office scene where Andy, Michael, and Dwight leap around 
 
 ## Requirements
 
-- PHP 8.3+
+- PHP 8.0+
 - WordPress with WP-CLI
 - Timber
 - ACF Pro
@@ -45,11 +45,18 @@ Then run:
 composer require mccomaschris/parkour --dev
 ```
 
-### Global Installation (Optional)
+### Configure WP-CLI
 
-```bash
-composer global require mccomaschris/parkour
+Create a `wp-cli.yml` file in your project root:
+
+```yaml
+require:
+  - vendor/mccomaschris/parkour/src/class-blockcommand.php
+
+path: web/wp
 ```
+
+This tells WP-CLI to load the Parkour command.
 
 ## Usage
 

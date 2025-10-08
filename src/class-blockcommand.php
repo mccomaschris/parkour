@@ -9,9 +9,7 @@ namespace Parkour;
 
 use WP_CLI;
 use function Laravel\Prompts\text;
-use function Laravel\Prompts\textarea;
 use function Laravel\Prompts\select;
-use function Laravel\Prompts\multiselect;
 use function Laravel\Prompts\confirm;
 use function Laravel\Prompts\info;
 use function Laravel\Prompts\error;
@@ -160,7 +158,7 @@ class BlockCommand {
 			required: true
 		);
 
-		$description = textarea(
+		$description = text(
 			label: 'Block description (optional)',
 			placeholder: 'A brief description of what this block does...'
 		);
@@ -251,5 +249,6 @@ class BlockCommand {
 		return ucwords( str_replace( '-', ' ', $name ) );
 	}
 }
-
-WP_CLI::add_command( 'parkour', BlockCommand::class );
+if ( defined( 'WP_CLI' ) && WP_CLI ) {
+	WP_CLI::add_command( 'parkour', BlockCommand::class );
+}
