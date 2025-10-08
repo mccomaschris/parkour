@@ -1,0 +1,44 @@
+<?php
+/**
+ * {{title}} block for {{theme_slug}} theme
+ *
+ * @package {{theme_slug}}
+ */
+
+/**
+ * This is the callback that displays the block.
+ *
+ * @param   array  $block      The block settings and attributes.
+ * @param   string $content    The block content (empty string).
+ * @param   bool   $is_preview True during AJAX preview.
+ */
+function {{function_name}}( $block, $content = '', $is_preview = false ) {
+	$context               = Timber::context();
+	$context['block']      = $block;
+	$context['fields']     = get_fields() ? get_fields() : array();
+	$context['is_preview'] = $is_preview;
+
+	$classes = array( '{{theme_slug}}-block', 'wp-block-{{theme_slug}}-{{name}}' );
+
+	if ( ! empty( $block['className'] ) ) {
+		$classes[] = $block['className'];
+	}
+
+	if ( ! empty( $context['fields']['background'] ) ) {
+		$classes[] = 'has-' . $context['fields']['background'] . '-background-color';
+		$classes[] = 'has-background';
+	}
+
+	$context['block_classes'] = implode( ' ', $classes );
+
+	$context['anchor'] = ! empty( $block['anchor'] ) ? esc_attr( $block['anchor'] ) : '';
+
+	{{#include_js}}
+	wp_enqueue_script( '{{theme_slug}}-{{name}}', get_template_directory_uri() . '/blocks/{{name}}/{{name}}.js', array(), filemtime( get_theme_file_path( '/blocks/{{name}}/{{name}}.js' ) ), false );
+	{{/include_js}}
+	{{#include_css}}
+	wp_enqueue_style( '{{theme_slug}}-{{name}}', get_template_directory_uri() . '/blocks/{{name}}/{{name}}.css', array(), filemtime( get_theme_file_path( '/blocks/{{name}}/{{name}}.css' ) ) );
+	{{/include_css}}
+
+	Timber::render( 'blocks/{{name}}.twig', $context );
+}

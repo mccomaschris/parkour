@@ -1,0 +1,25 @@
+{#
+/**
+ * {{title}} Block
+ *
+ * @package {{theme_slug}}
+ */
+#}
+
+<div
+	class="{{ block_classes }}"
+	{% if anchor %}id="{{ anchor }}"{% endif %}
+>
+	{% if is_preview %}
+		<div class="block-preview">
+			<p><strong>{{title}}</strong></p>
+			<p>Preview mode - configure your fields in the sidebar.</p>
+		</div>
+	{% else %}
+		{# Add your block markup here #}
+		<div class="block-content">
+			<h2>{{title}}</h2>
+			{# Example field usage: {{ fields.your_field_name }} #}
+		</div>
+	{% endif %}
+</div>

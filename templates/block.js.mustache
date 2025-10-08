@@ -1,0 +1,26 @@
+/**
+ * {{title}} Block JavaScript
+ *
+ * @package {{theme_slug}}
+ */
+
+(function() {
+	'use strict';
+
+	// Initialize the block
+	function init{{name}}() {
+		const blocks = document.querySelectorAll('.wp-block-{{theme_slug}}-{{name}}');
+
+		blocks.forEach(function(block) {
+			// Your block JavaScript here
+			console.log('{{title}} block initialized');
+		});
+	}
+
+	// Run on DOM ready
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', init{{name}});
+	} else {
+		init{{name}}();
+	}
+})();

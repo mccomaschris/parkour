@@ -1,0 +1,24 @@
+{
+    "apiVersion": 2,
+    "name": "acf/{{name}}",
+    "version": "1.0.0",
+    "title": "{{title}}",
+    {{#description}}
+    "description": "{{description}}",
+    {{/description}}
+    "category": "{{category}}",
+    "icon": "{{icon}}",
+    {{#keywords}}
+    "keywords": [{{#keywords}}"{{.}}"{{^last}}, {{/last}}{{/keywords}}],
+    {{/keywords}}
+    "textdomain": "{{theme_slug}}",
+    "acf": {
+        "mode": "edit",
+        "renderCallback": "{{function_name}}"
+    },
+    "supports": {
+        "anchor": {{#supports_anchor}}true{{/supports_anchor}}{{^supports_anchor}}false{{/supports_anchor}},
+        "className": {{#supports_classname}}true{{/supports_classname}}{{^supports_classname}}false{{/supports_classname}},
+        "customClassName": {{#supports_classname}}true{{/supports_classname}}{{^supports_classname}}false{{/supports_classname}}
+    }
+}

@@ -1,0 +1,42 @@
+{
+  "name": "mccomaschris/parkour",
+  "description": "A WP-CLI command to quickly scaffold ACF blocks for Timber themes. PARKOUR!",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Chris McComas",
+      "email": "mccomas.chris@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=8.3",
+    "mustache/mustache": "^2.14",
+    "laravel/prompts": "^0.3",
+	"squizlabs/php_codesniffer": "@stable",
+    "wp-coding-standards/wpcs": "^3.1",
+    "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1"
+  },
+  "require-dev": {
+    "wp-cli/wp-cli": "^2.8"
+  },
+  "autoload": {
+    "psr-4": {
+      "Parkour\\": "src/"
+    }
+  },
+  "extra": {
+    "commands": [
+      "Parkour\\BlockCommand"
+    ]
+  },
+   "scripts": {
+		"format": "phpcbf  --extensions=php --standard=phpcs.xml.dist --report-summary --report-source",
+		"lint": "phpcs --extensions=php --standard=phpcs.xml.dist"
+	},
+  "config": {
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    }
+  }
+}
