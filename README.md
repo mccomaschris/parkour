@@ -195,14 +195,6 @@ wp parkour create cta-banner
 wp parkour create testimonials
 ```
 
-## Contributing
-
-This package is maintained by Chris McComas for Marshall University projects. Feel free to fork and customize for your own needs!
-
-## License
-
-MIT
-
 ## Why "Parkour"?
 
 Because creating blocks should be fast, fun, and make you want to jump around your office yelling "PARKOUR!" just like Michael Scott.
